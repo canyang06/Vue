@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{margin:0;padding:0;}
+  #pop{
+    width:300px;
+    height:100px;
+    background-color:#afa;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-left:-150px;
+    margin-top:-50px;
+  }
+  #pop>p{
+    text-align:right;
+  }
+  </style>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="showIt">click me</button>
+    <div id="pop" v-show="show">
+      <p><a href="javasrcipt:;" @click="hideIt">×</a></p>
+      您的浏览器版本过低，请升级浏览器版本
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        show:false//定义一个变量，记录开关
+      },
+      methods:{
+        showIt(){
+          this.show=true;
+        },
+        hideIt(){
+          this.show=false;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

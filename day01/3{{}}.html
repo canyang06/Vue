@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <h1>用户名:{{uname}}</h1>
+  <h2>性别:{{sex?"男":"女"}}</h2>
+  <h3>下单时间:{{new Date(orderTime).toLocaleString()}}</h3>
+  <h3>小计:¥{{(price*count).toFixed(2)}}</h3>
+  <h3>今天星期{{week[new Date().getDay()]}}</h3>
+</div>
+<script>
+  new Vue({
+    el:"#app",
+    data:{
+      uname:"dingding",
+      sex:0,
+      orderTime:new Date(),
+      price:12.5,
+      count:5,
+      week:["日","一","二","三","四","五","六"]
+    }
+  })
+</script>
+</body>
+</html>

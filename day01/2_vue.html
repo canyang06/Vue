@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--0. 引入vue.js-->
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <!-- 1.定义界面
+  1.1整个界面应该包裹在一个父元素里面
+  1.2页面中可能出现变化的地方，都应该用{{变量名}}标记出来
+  1.3页面中的事件处理函数应该用@事件名="事件处理函数名"标记出来-->
+  <div id="app">
+    <button @click="minus">-</button>
+    <span>{{n}}</span>
+    <button @click="add">+</button>
+  </div>
+  <script>
+  //3.创建一个Vue类型的对象
+  new Vue({
+    el:"#app",
+    //2.定义页面中所需的数据和函数
+    data:{
+      n:1//页面中所需的变量和初始值，应该放在一个名为data的对象中
+    },
+    methods:{
+      //页面中所需的事件处理函数应该放在一个名为methods的对象中
+      //要求：methods中的方法需要用到data中的变量时，必须加".this"
+      add(){
+        this.n++;
+      },
+      minus(){
+        this.n--;
+        //如果n==0，则将n重置为1
+        this.n==0&&(this.n=1)
+      }
+    }
+  })
+  </script>
+</body>
+</html>

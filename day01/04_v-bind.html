@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <!-- 如果pm25<100,则src为img/1.png 否则如果pm25<200,则src为img/2.png
+  否则如果pm25<300,则src为img/3.png
+  否则为img/4.png-->
+  <img :src="
+  pm25<100?'img/1.png':
+  pm25<200?'img/2.png':
+  pm25<300?'img/3.png':
+  'img/4.png'">
+</div>
+<script>
+  new Vue({
+    el:"#app",
+    data:{
+      pm25:Math.random()*400
+    }
+  })
+</script>
+</body>
+</html>
