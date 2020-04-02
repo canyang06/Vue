@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+ <input v-model:value="keywords" type="text" @input="search" @keyup.13="search"><button @click="search()">百度一下</button>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+  keywords:"",
+  timer:null//保存定时器的序号
+  },
+  methods:{
+   search(){
+     //防抖：当用户还在操作时，就什么都不干，而是关闭前一个等待，重新开启另一个新的等待
+     //直到用户长时间未执行操作，才发送请求
+     clearTimeout(this.timer);
+     this.timer=setTimeout(()=>{
+       if(this.keywords.trim()!=""){
+         console.log(`搜索 ${this.keywords} 的相关内容...`);
+       }
+     },1000)
+   }
+  }
+})
+</script>
+</body>
+</html>
